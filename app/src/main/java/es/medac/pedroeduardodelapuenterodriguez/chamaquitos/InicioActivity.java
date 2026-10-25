@@ -18,7 +18,7 @@ public class InicioActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         WebSettings settings = binding.webviewLogin.getSettings();
-        settings.setJavaScriptEnabled(false);
+        settings.setJavaScriptEnabled(true);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
 
