@@ -1,24 +1,27 @@
 package es.medac.pedroeduardodelapuenterodriguez.chamaquitos;
 
 import android.os.Bundle;
+import android.webkit.WebSettings;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import es.medac.pedroeduardodelapuenterodriguez.chamaquitos.databinding.ActivityInicioBinding;
 
 public class InicioActivity extends AppCompatActivity {
+
+    private ActivityInicioBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_inicio);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        binding = ActivityInicioBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        WebSettings settings = binding.webviewLogin.getSettings();
+        settings.setJavaScriptEnabled(false);
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
+
+        binding.webviewLogin.loadUrl("file:///android_asset/chamaquitos_login.html");
     }
 }
