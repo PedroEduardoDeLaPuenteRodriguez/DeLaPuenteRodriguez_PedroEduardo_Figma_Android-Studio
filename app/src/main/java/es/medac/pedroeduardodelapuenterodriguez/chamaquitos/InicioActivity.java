@@ -19,8 +19,6 @@ public class InicioActivity extends AppCompatActivity {
 
         WebSettings settings = binding.webviewLogin.getSettings();
         settings.setJavaScriptEnabled(true);
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
 
         binding.webviewLogin.loadUrl("file:///android_asset/chamaquitos_login.html");
     }
